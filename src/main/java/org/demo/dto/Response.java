@@ -42,8 +42,14 @@ public class Response {
 		this.data = data;
 	}
 	
+	// 成功
 	public static Response success() {
 		return new Response(0, "success", null);
+	}
+	
+	// 失败
+	public static Response fail() {
+		return new Response(-1, "fail", null);
 	}
 
 }

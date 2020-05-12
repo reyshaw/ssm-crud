@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.demo.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="org.demo.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="birthda" jdbcType="DATE" property="birthday" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="hobbies" jdbcType="VARCHAR" property="hobbies" />
+    <result column="reg_time" jdbcType="DATE" property="regTime" />
+  </resultMap>
+  
+  <insert id="addUser" parameterType="org.demo.entity.User">
+    insert into user (username, password, gender, address, birthday, avatar, hobbies)
+    values (#{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE},#{avatar,jdbcType=VARCHAR},#{hobbies,jdbcType=VARCHAR})
+  </insert>
+ 
+  <select id="getUserByNameAndPassword" parameterType="org.demo.dto.LoginRequest" resultMap="BaseResultMap">
+    select * from user
+    where username = #{username,jdbcType=VARCHAR} and password=#{password, jdbcType=VARCHAR} limit 1;
+  </select>
+	
+ <select id="getUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from user
+    where username = #{username,jdbcType=VARCHAR} limit 1;
+  </select>	
+</mapper>

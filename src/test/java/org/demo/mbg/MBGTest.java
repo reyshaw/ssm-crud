@@ -1,4 +1,4 @@
-package org.demo.test;
+package org.demo.mbg;
 
 import java.io.File;
 import java.io.IOException;

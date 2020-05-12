@@ -6,6 +6,7 @@
   <configuration>
   	<!-- <properties resource="db.properties"/> -->
   	<settings>
+  		<setting name="logImpl" value="STDOUT_LOGGING" /> <!-- 显示sql语句 -->
   		<setting name="mapUnderscoreToCamelCase" value="true"></setting>
   	</settings>
   	<typeAliases>
